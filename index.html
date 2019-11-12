@@ -291,6 +291,8 @@
         <p>
           This is an example application to show how to develop a responsive
           navbar for an application that is optimized for mobile.
+          Change the size of your viewport to see it in action! The links and icons
+          in the navbar are purely for show.
         </p>
         <p>
           I attempt to achieve the following:
@@ -299,7 +301,7 @@
           <li>Position the navbar <i>near the thumb</i> for mobile devices</li>
           <li>
             <i>Progressive enhancement</i> &ndash; the navbar works without JavaScript
-            (and without CSS) and does not hide content
+            and without CSS and does not hide content
           </li>
           <li>
             <i>focus</i> and <i>hover</i> states for navigation items
@@ -319,55 +321,29 @@
             Always have a <i>label for every icon</i>!
           </li>
           <li>
-            Only hide navigation items on mobile <i>when absolutely necessary</i>!
+            Only hide navigation items on mobile <i>when absolutely necessary</i>
+            &ndash; the mobile menu is only activated when there are at least five
+            menu items.
           </li>
           <li>
-            A <i>lightweight implementation</i> &ndash; I dare you to see how
-            few KBs this implementation actually is!
+            A <i>lightweight implementation</i> &ndash; I dare you to check how
+            few KBs this implementation actually has!
           </li>
         </ul>
         <p>
-          When we are using a web application on a desktop, we recognize and
-          expect the navigation to be available on the top of the page.
-        </p>
-        <p>
-          But what about when we are on our phone?
-        </p>
-        <p>
-          When we are on our phone, we often hold our phone in our hand add
-          navigate through sites using our thumb. If we are surfing the
-          internet for long enough it starts to hurt!
-        </p>
-        <p>
-          As long as there are only a few navigation items in my navbar, I
-          personally prefer for them to be as easy to reach as possible
-          (e.g. not hidden behind a menu of some kind).
-        </p>
-        <p>
-          For this navbar, in a desktop orientation all of the navigation
-          items are directly available as items in the navbar at the start
-          of the webpage.
-        </p>
-        <p>
-          However, on mobile we want to move the navbar to a fixed position
-          on the bottom of the page so that it is always available to navigate
-          and so that it is nearer to our thumbs.
-        </p>
-        <p>
-          This means that the navigation will always take up screen real estate
-          on an already small screen. When we have too many navigation items,
-          we want to hide them away from the user.
-        </p>
-        <p>
-          In this navbar, the mobile menu is not shown at all when there are less
-          than five navigational items. When there are more than four items, only
-          the first three items are shown in the navbar and the rest hide behind
-          a menu toggle.
-        </p>
-        <p>
+          I also chose 600px as the breakpoint to determine if something is a
+          phone or a tablet.
           <a class="link" href="https://www.freecodecamp.org/news/the-100-correct-way-to-do-css-breakpoints-88d6a5ba1862/">
-            Read this
-          </a> to understand why I have decided on 600px for the breakpoint for my device.
+            Read this article
+          </a> to understand why I chose that value.
+        </p>
+        <p>
+          <b>Any comments or suggestions?</b>
+        </p>
+        <p>Please feel free to create an issue in
+          <a class="link" href="https://github.com/joyheron/responsive-nav">
+            this repository
+          </a>.
         </p>
       </section>
     </main>
