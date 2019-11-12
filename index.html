@@ -10,29 +10,34 @@
         --space-lg: 1.25rem;
         --space-xl: 2rem;
         --space-xxl: 3.25rem;
+        --space-xxxl: 5.25rem;
 
         --pink-100: #FFF5F7;
         --pink-200: #FED7E2;
         --pink-300: #FBB6CE;
+        --pink-400: #F687B3;
+        --pink-500: #ED64A6;
         --pink-600: #D53F8C;
+        --pink-700: #B83280;
+        --gray-100: #F7FAFC;
         --gray-300: #E2E8F0;
         --gray-900: #1A202C;
         --black: #000;
 
+        --font-size-sm: 1rem;
+        --font-size-base: 1.25rem;
+        --font-size-lg: 2rem;
+        --container-width: 40rem;
+
         /* Use to calculate body padding for non JavaScript menu */
         --number-of-nav-rows: 2;
-        --navbar-height: 4.5rem;
+        --navbar-height: 5rem;
       }
 
-      /* CSS Reset */
+      /* CSS Reset & Defaults */
       * {
         margin: 0;
         padding: 0;
-        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-        font-size: 18px;
-      }
-      li {
-        list-style-type: none;
       }
       a {
         text-decoration: none;
@@ -40,12 +45,19 @@
       button {
         border: 0;
         background-color: transparent;
+        font-size: inherit;
+        font-family: inherit;
       }
       button:focus {
         outline: 2px solid var(--pink-600);
         outline-offset: -2px;
       }
+      body {
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        font-size: var(--font-size-base);
+      }
 
+      /* Icon Styles */
       .icon, .fa-primary {
         color: var(--pink-300);
       }
@@ -59,15 +71,19 @@
         max-height: 2rem;
       }
 
+      /* Navbar Styles */
       .nav {
         width: 100%;
         display: flex;
         align-items: center;
         background-color: white;
       }
+      .nav li {
+        list-style-type: none;
+      }
       .nav-item {
-        padding: var(--space-sm);
-        padding-bottom: var(--space-xs);
+        padding: var(--space-md);
+        padding-bottom: var(--space-sm);
         display: flex;
         align-items: center;
         justify-content: center;
@@ -90,11 +106,9 @@
         margin: 0 var(--space-xs);
       }
 
-      .svg-definitions {
-        display: none;
-      }
 
       /* For Phones */
+      /* For Choice of Breakpoint read: https://www.freecodecamp.org/news/the-100-correct-way-to-do-css-breakpoints-88d6a5ba1862/ */
       @media (max-width: 599px) {
         body {
           padding-bottom: calc(var(--number-of-nav-rows) * var(--navbar-height));
@@ -115,11 +129,11 @@
           flex-direction: column;
         }
         /* 
-        Only blend in menu if there are more than 3 Navigation items
+        Only blend in menu if there are more than 4 Navigation items
         This works because the rule only is activated when there are
-        4 navigation items + 1 toggle item = 5 total items
+        5 navigation items + 1 toggle item = 6 total items
         */
-        .js .nav :nth-last-child(n+5) ~ .menu-toggle {
+        .nav.collapsed :nth-last-child(n+6) ~ .menu-toggle {
           display: flex;
         }
         /*
@@ -136,12 +150,14 @@
         .nav.expanded li {
           width: 100%;
         }
+        .nav.expanded .menu-toggle {
+          display: flex;
+        }
         .nav.expanded .nav-item {
           flex-direction: row;
           flex-basis: 100%;
           box-sizing: border-box;
-          padding-bottom: var(--space-sm);
-          padding-left: 0;
+          padding: var(--space-md) 0;
           border-bottom: 0;
           border-left-width: var(--space-sm);
         }
@@ -162,6 +178,55 @@
         .nav {
           border-bottom: 1px solid var(--gray-300);
         }
+      }
+
+      /* Other Styles not relevant for Navbar*/
+      .svg-definitions {
+        display: none;
+      }
+      .link {
+        color: var(--pink-600);
+        display: inline-block;
+        text-decoration-color: var(--pink-200);
+        text-decoration-line: underline;
+        text-decoration-thickness: var(--space-sm);
+        text-underline-offset: -4px;
+        text-decoration-skip-ink: none;
+      }
+      .link:hover, link:focus {
+        color: var(--pink-700);
+        text-decoration-color: var(--pink-300);
+      }
+      body {
+        background-color: var(--gray-100);
+      }
+      main {
+        max-width: var(--container-width);
+        padding: var(--space-xxxl) var(--space-xl);
+        margin: auto;
+        font-weight: lighter;
+      }
+      h1 {
+        font-size: var(--font-size-lg);
+      }
+      * + p, * + ul {
+        margin-top: var(--space-xl);
+      }
+      .list {
+        padding-left: var(--space-lg);
+      }
+      .list i {
+        font-weight: normal;
+      }
+      .list li::marker {
+        color: var(--pink-700);
+      }
+      .list li + li {
+        margin-top: var(--space-lg);
+      }
+      .list li p + p {
+        margin-top: var(--space-xs);
+        font-size: var(--font-size-sm);
       }
     </style>
   </head>
@@ -221,25 +286,90 @@
       </nav>
       
     <main>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Velit laoreet id donec ultrices tincidunt arcu. Integer feugiat scelerisque varius morbi enim nunc faucibus. Amet tellus cras adipiscing enim eu. Fringilla est ullamcorper eget nulla. Elit duis tristique sollicitudin nibh. Amet mauris commodo quis imperdiet massa tincidunt nunc pulvinar sapien. Fringilla urna porttitor rhoncus dolor. Magna sit amet purus gravida. Commodo odio aenean sed adipiscing diam donec adipiscing tristique risus. Diam quis enim lobortis scelerisque. Phasellus faucibus scelerisque eleifend donec pretium. Commodo viverra maecenas accumsan lacus vel facilisis volutpat est. Nibh tortor id aliquet lectus proin nibh.
-
-        Morbi tincidunt augue interdum velit euismod. Vulputate eu scelerisque felis imperdiet. Semper quis lectus nulla at volutpat diam ut venenatis. Dolor purus non enim praesent elementum facilisis leo vel fringilla. Justo laoreet sit amet cursus sit amet dictum sit. Eu nisl nunc mi ipsum faucibus vitae aliquet nec. Suspendisse ultrices gravida dictum fusce ut placerat. Eu scelerisque felis imperdiet proin fermentum leo vel. Hendrerit dolor magna eget est lorem ipsum dolor sit. Vitae elementum curabitur vitae nunc sed velit dignissim. Elit scelerisque mauris pellentesque pulvinar pellentesque habitant morbi. Lacus sed turpis tincidunt id aliquet risus feugiat in. Congue eu consequat ac felis donec. Blandit massa enim nec dui nunc mattis. Leo urna molestie at elementum. Aenean sed adipiscing diam donec adipiscing. Mauris augue neque gravida in fermentum et sollicitudin ac.
-        
-        Egestas integer eget aliquet nibh. Nisi quis eleifend quam adipiscing vitae proin sagittis nisl. Lorem ipsum dolor sit amet consectetur adipiscing elit pellentesque habitant. Adipiscing commodo elit at imperdiet dui accumsan. Faucibus purus in massa tempor nec feugiat. Augue mauris augue neque gravida in fermentum et sollicitudin. Quis ipsum suspendisse ultrices gravida dictum fusce ut placerat orci. Dictum sit amet justo donec enim diam vulputate ut pharetra. Vitae elementum curabitur vitae nunc sed velit. In ante metus dictum at tempor commodo ullamcorper a. Est placerat in egestas erat. Viverra accumsan in nisl nisi scelerisque eu ultrices. In nulla posuere sollicitudin aliquam ultrices sagittis orci a scelerisque.
-        
-        Eu non diam phasellus vestibulum. Aliquet risus feugiat in ante metus dictum. At tempor commodo ullamcorper a lacus vestibulum sed arcu non. Nisi vitae suscipit tellus mauris a. Quis eleifend quam adipiscing vitae proin sagittis nisl rhoncus. Nibh sed pulvinar proin gravida hendrerit. Feugiat in ante metus dictum at tempor. Nisi scelerisque eu ultrices vitae auctor eu augue. Donec adipiscing tristique risus nec. Quam vulputate dignissim suspendisse in est. Risus quis varius quam quisque id diam vel. Vulputate ut pharetra sit amet aliquam id diam maecenas ultricies. Vitae congue mauris rhoncus aenean vel elit scelerisque mauris. Libero volutpat sed cras ornare arcu dui vivamus arcu felis. Mi sit amet mauris commodo quis imperdiet massa. Lacus suspendisse faucibus interdum posuere lorem. Vulputate dignissim suspendisse in est ante in nibh mauris. Lacus sed viverra tellus in hac habitasse platea.
-        
-        Ac odio tempor orci dapibus ultrices in iaculis. Quis vel eros donec ac odio tempor. Ligula ullamcorper malesuada proin libero nunc consequat. Cursus turpis massa tincidunt dui ut ornare lectus sit amet. Tempor orci eu lobortis elementum nibh tellus molestie nunc non. Habitant morbi tristique senectus et netus et malesuada fames ac. At imperdiet dui accumsan sit amet nulla. Condimentum lacinia quis vel eros donec. Sed cras ornare arcu dui vivamus arcu felis bibendum. Tortor dignissim convallis aenean et. Arcu cursus euismod quis viverra nibh cras pulvinar mattis. Aliquet nec ullamcorper sit amet risus. Amet facilisis magna etiam tempor orci eu lobortis. Tristique risus nec feugiat in fermentum posuere urna nec tincidunt. Elementum pulvinar etiam non quam. Lectus mauris ultrices eros in cursus. Ut enim blandit volutpat maecenas volutpat blandit. Egestas integer eget aliquet nibh praesent tristique magna.
-        
-        Nibh venenatis cras sed felis eget velit aliquet sagittis id. Pretium vulputate sapien nec sagittis aliquam. Non pulvinar neque laoreet suspendisse interdum consectetur. Enim tortor at auctor urna nunc id cursus. Duis ultricies lacus sed turpis tincidunt id aliquet risus feugiat. Laoreet sit amet cursus sit amet dictum sit. Platea dictumst quisque sagittis purus sit amet volutpat consequat mauris. Turpis egestas maecenas pharetra convallis posuere morbi. Placerat orci nulla pellentesque dignissim enim sit amet. Vel turpis nunc eget lorem dolor. Egestas congue quisque egestas diam in arcu cursus euismod. Maecenas accumsan lacus vel facilisis volutpat est. Vitae suscipit tellus mauris a diam maecenas sed. Risus sed vulputate odio ut enim blandit volutpat maecenas volutpat. Pharetra magna ac placerat vestibulum lectus mauris ultrices. Adipiscing elit ut aliquam purus. Purus sit amet volutpat consequat mauris nunc congue nisi. Aliquam etiam erat velit scelerisque in dictum non. Sit amet commodo nulla facilisi nullam vehicula ipsum a arcu.
-        
-        Volutpat ac tincidunt vitae semper quis lectus nulla at volutpat. Suscipit tellus mauris a diam maecenas. Justo eget magna fermentum iaculis. In dictum non consectetur a erat. Diam quam nulla porttitor massa id neque. Massa eget egestas purus viverra accumsan in nisl nisi scelerisque. Vitae sapien pellentesque habitant morbi tristique. Dignissim suspendisse in est ante. Nulla facilisi nullam vehicula ipsum. Montes nascetur ridiculus mus mauris vitae ultricies leo. Cras pulvinar mattis nunc sed blandit libero volutpat sed. Rhoncus mattis rhoncus urna neque viverra justo nec. Vitae purus faucibus ornare suspendisse sed. Volutpat est velit egestas dui id ornare. Nullam non nisi est sit amet. Ipsum faucibus vitae aliquet nec ullamcorper. Elementum eu facilisis sed odio morbi. Lobortis feugiat vivamus at augue eget arcu dictum varius. Rhoncus mattis rhoncus urna neque viverra justo.
-        
-        Vel turpis nunc eget lorem dolor sed. Id faucibus nisl tincidunt eget. Ac odio tempor orci dapibus ultrices in iaculis nunc sed. Eleifend mi in nulla posuere sollicitudin. Ultrices eros in cursus turpis massa tincidunt dui. Bibendum est ultricies integer quis auctor elit sed vulputate mi. Luctus accumsan tortor posuere ac ut consequat semper. Maecenas pharetra convallis posuere morbi leo urna molestie at. Nisl nisi scelerisque eu ultrices vitae auctor eu augue. Libero id faucibus nisl tincidunt. Leo a diam sollicitudin tempor id eu nisl nunc. Vestibulum lectus mauris ultrices eros. Accumsan sit amet nulla facilisi morbi tempus iaculis urna id. Ut consequat semper viverra nam. Fusce id velit ut tortor pretium viverra suspendisse. Sed blandit libero volutpat sed cras ornare arcu. Amet tellus cras adipiscing enim. Quisque id diam vel quam elementum pulvinar. Non enim praesent elementum facilisis leo vel. Eget egestas purus viverra accumsan in.
-        
-        Porttitor eget dolor morbi non arcu risus quis varius quam. In ante metus dictum at. Vel risus commodo viverra maecenas accumsan lacus vel facilisis volutpat. Sit amet consectetur adipiscing elit. Mi proin sed libero enim. In nibh mauris cursus mattis molestie. Nibh tortor id aliquet lectus proin nibh nisl. Pretium fusce id velit ut tortor pretium viverra suspendisse. Vel facilisis volutpat est velit egestas dui id. Ac tincidunt vitae semper quis. Massa enim nec dui nunc mattis enim.
-        
-        Sit amet commodo nulla facilisi nullam vehicula. Amet consectetur adipiscing elit ut. Mattis molestie a iaculis at erat. Nibh tellus molestie nunc non blandit massa enim nec. Nulla porttitor massa id neque aliquam vestibulum. Id nibh tortor id aliquet. Sodales ut eu sem integer vitae justo eget. Nullam eget felis eget nunc lobortis mattis aliquam faucibus purus. Ipsum a arcu cursus vitae congue mauris. Integer vitae justo eget magna fermentum iaculis eu non diam. Vulputate ut pharetra sit amet aliquam id diam. Elit sed vulputate mi sit amet mauris commodo quis imperdiet. Consectetur adipiscing elit ut aliquam purus. Velit dignissim sodales ut eu sem integer vitae justo. Turpis egestas maecenas pharetra convallis posuere morbi leo urna.
+      <section>
+        <h1>Responsive Mobile Navigation</h1>
+        <p>
+          This is an example application to show how to develop a responsive
+          navbar for an application that is optimized for mobile.
+        </p>
+        <p>
+          I attempt to achieve the following:
+        </p>
+        <ul class="list">
+          <li>Position the navbar <i>near the thumb</i> for mobile devices</li>
+          <li>
+            <i>Progressive enhancement</i> &ndash; the navbar works without JavaScript
+            (and without CSS) and does not hide content
+          </li>
+          <li>
+            <i>focus</i> and <i>hover</i> states for navigation items
+          </li>
+          <li>
+            <p>
+              Style <i>active</i> item and <i>label it for a screen reader</i>
+            </p>
+            <p>
+              (Tip from <a class="link" href="https://shop.smashingmagazine.com/products/inclusive-design-patterns">
+                this book
+              </a>: add a description for a screen reader with <code>aria-describedby</code>
+              and use this as a hook for CSS styling)
+            </p>
+          </li>
+          <li>
+            Always have a <i>label for every icon</i>!
+          </li>
+          <li>
+            Only hide navigation items on mobile <i>when absolutely necessary</i>!
+          </li>
+          <li>
+            A <i>lightweight implementation</i> &ndash; I dare you to see how
+            few KBs this implementation needs!
+          </li>
+        </ul>
+        <p>
+          When we are using a web application on a desktop, we recognize and
+          expect the navigation to be available on the top of the page.
+        </p>
+        <p>
+          But what about when we are on our phone?
+        </p>
+        <p>
+          When we are on our phone, we often hold our phone in our hand add
+          navigate through sites using our thumb. If we are surfing the
+          internet for long enough it starts to hurt!
+        </p>
+        <p>
+          As long as there are only a few navigation items in my navbar, I
+          personally prefer for them to be as easy to reach as possible
+          (e.g. not hidden behind a menu of some kind).
+        </p>
+        <p>
+          For this navbar, in a desktop orientation all of the navigation
+          items are directly available as items in the navbar at the start
+          of the webpage.
+        </p>
+        <p>
+          However, on mobile we want to move the navbar to a fixed position
+          on the bottom of the page so that it is always available to navigate
+          and so that it is nearer to our thumbs.
+        </p>
+        <p>
+          This means that the navigation will always take up screen real estate
+          on an already small screen. When we have too many navigation items,
+          we want to hide them away from the user.
+        </p>
+        <p>
+          In this navbar, the mobile menu is not shown at all when there are less
+          than five navigational items. When there are more than four items, only
+          the first three items are shown in the navbar and the rest hide behind
+          a menu toggle.
+        </p>
+        <p>
+          <a class="link" href="https://www.freecodecamp.org/news/the-100-correct-way-to-do-css-breakpoints-88d6a5ba1862/">
+            Read this
+          </a> to understand why I have decided on 600px for the breakpoint for my device.
+        </p>
+      </section>
     </main>
 
     <svg class="svg-definitions" hidden>
