@@ -24,6 +24,41 @@
         --gray-300: #E2E8F0;
         --gray-900: #1A202C;
         --black: #000;
+        --red-100: #FFF5F5;
+        --red-200: #FED7D7;
+        --red-300: #FEB2B2;
+        --red-400: #FC8181;
+        --red-500: #F56565;
+        --red-600: #E53E3E;
+        --red-700:#C53030;
+        --green-100: #F0FFF4;
+        --green-200: #C6F6D5;
+        --green-300: #9AE6B4;
+        --green-400: #68D391;
+        --green-500: #48BB78;
+        --green-600: #38A169;
+        --green-700: #2F855A;
+        --teal-100: #E6FFFA;
+        --teal-200: #B2F5EA;
+        --teal-300: #81E6D9;
+        --teal-400: #4FD1C5;
+        --teal-500: #38B2AC;
+        --teal-600: #319795;
+        --teal-700: #2C7A7B;
+        --indigo-100: #EBF4FF;
+        --indigo-200: #C3DAFE;
+        --indigo-300: #A3BFFA;
+        --indigo-400: #7F9CF5;
+        --indigo-500: #667EEA;
+        --indigo-600: #5A67D8;
+        --indigo-700: #4C51BF;
+        --purple-100: #FAF5FF;
+        --purple-200: #E9D8FD;
+        --purple-300: #D6BCFA;
+        --purple-400: #B794F4;
+        --purple-500: #9F7AEA;
+        --purple-600: #805AD5;
+        --purple-700: #6B46C1;
 
         --font-size-sm: 1rem;
         --font-size-base: 1.25rem;
@@ -33,6 +68,14 @@
         /* Use to calculate body padding for non JavaScript menu */
         --number-of-nav-rows: 2;
         --navbar-height: 5rem;
+
+        --primary-100: var(--pink-100);
+        --primary-200: var(--pink-200);
+        --primary-300: var(--pink-300);
+        --primary-400: var(--pink-400);
+        --primary-500: var(--pink-500);
+        --primary-600: var(--pink-600);
+        --primary-700: var(--pink-700);
       }
 
       /* CSS Reset & Defaults */
@@ -50,7 +93,7 @@
         font-family: inherit;
       }
       button:focus {
-        outline: 2px solid var(--pink-600);
+        outline: 2px solid var(--primary-600);
         outline-offset: -2px;
       }
       body {
@@ -60,7 +103,7 @@
 
       /* Icon Styles */
       .icon, .fa-primary {
-        color: var(--pink-300);
+        color: var(--primary-300);
       }
       .fa-secondary {
         color: var(--black);
@@ -99,11 +142,11 @@
         border-bottom-width: var(--space-xs);
       }
       .nav-item[aria-describedby=current] {
-        border-color: var(--pink-200);
+        border-color: var(--primary-200);
       }
       .nav-item:hover {
-        background-color: var(--pink-100);
-        border-color: var(--pink-300);
+        background-color: var(--primary-100);
+        border-color: var(--primary-300);
       }
       .nav-item > * {
         margin: 0 var(--space-xs);
@@ -188,17 +231,17 @@
         display: none;
       }
       .link {
-        color: var(--pink-600);
+        color: var(--primary-600);
         display: inline-block;
-        text-decoration-color: var(--pink-200);
+        text-decoration-color: var(--primary-200);
         text-decoration-line: underline;
         text-decoration-thickness: var(--space-sm);
         text-underline-offset: -4px;
         text-decoration-skip-ink: none;
       }
       .link:hover, link:focus {
-        color: var(--pink-700);
-        text-decoration-color: var(--pink-300);
+        color: var(--primary-700);
+        text-decoration-color: var(--primary-300);
       }
       body {
         background-color: var(--gray-100);
@@ -222,7 +265,7 @@
         font-weight: normal;
       }
       .list li::marker {
-        color: var(--pink-700);
+        color: var(--primary-700);
       }
       .list li + li {
         margin-top: var(--space-lg);
@@ -230,6 +273,51 @@
       .list li p + p {
         margin-top: var(--space-xs);
         font-size: var(--font-size-sm);
+      }  
+      .red-theme {
+        --primary-100: var(--red-100);
+        --primary-200: var(--red-200);
+        --primary-300: var(--red-300);
+        --primary-400: var(--red-400);
+        --primary-500: var(--red-500);
+        --primary-600: var(--red-600);
+        --primary-700: var(--red-700);
+      }
+      .green-theme {
+        --primary-100: var(--green-100);
+        --primary-200: var(--green-200);
+        --primary-300: var(--green-300);
+        --primary-400: var(--green-400);
+        --primary-500: var(--green-500);
+        --primary-600: var(--green-600);
+        --primary-700: var(--green-700);
+      }
+      .teal-theme {
+        --primary-100: var(--teal-100);
+        --primary-200: var(--teal-200);
+        --primary-300: var(--teal-300);
+        --primary-400: var(--teal-400);
+        --primary-500: var(--teal-500);
+        --primary-600: var(--teal-600);
+        --primary-700: var(--teal-700);
+      }
+      .indigo-theme {
+        --primary-100: var(--indigo-100);
+        --primary-200: var(--indigo-200);
+        --primary-300: var(--indigo-300);
+        --primary-400: var(--indigo-400);
+        --primary-500: var(--indigo-500);
+        --primary-600: var(--indigo-600);
+        --primary-700: var(--indigo-700);
+      }
+      .purple-theme {
+        --primary-100: var(--purple-100);
+        --primary-200: var(--purple-200);
+        --primary-300: var(--purple-300);
+        --primary-400: var(--purple-400);
+        --primary-500: var(--purple-500);
+        --primary-600: var(--purple-600);
+        --primary-700: var(--purple-700);
       }
     </style>
   </head>
@@ -237,37 +325,43 @@
       <nav>
         <ul class="nav" is="nav-bar">
           <li>
-            <a class="nav-item" href="#home">
+            <a class="nav-item" href="#home"
+               onclick="addBodyClass()">
               <svg class="icon"><use href="#fa-home-heart" xlink:href="#fa-home-heart"></use></svg>
               Home
             </a>
           </li>
           <li>
-            <a class="nav-item" href="#about" aria-describedby="current">
+            <a class="nav-item" href="#about" aria-describedby="current"
+               onclick="addBodyClass('red-theme')">
               <svg class="icon"><use href="#fa-star-exclamation" xlink:href="#fa-star-exclamation"></use></svg>
               About
             </a>
           </li>
           <li>
-            <a  class="nav-item" href="#music">
+            <a class="nav-item" href="#music"
+               onclick="addBodyClass('green-theme')">
               <svg class="icon"><use href="#fa-cloud-music" xlink:href="#fa-cloud-music"></use></svg>
               Music
             </a>
           </li>
           <li>
-            <a class="nav-item" href="#contact">
+            <a class="nav-item" href="#contact"
+               onclick="addBodyClass('teal-theme')">
               <svg class="icon"><use href="#fa-comment-smile" xlink:href="#fa-comment-smile"></use></svg>
               Contact
             </a>
           </li>
           <li>
-            <a class="nav-item" href="#cat">
+            <a class="nav-item" href="#cat"
+               onclick="addBodyClass('indigo-theme')">
               <svg class="icon"><use href="#fa-cat" xlink:href="#fa-cat"></use></svg>
               Cat
             </a>
           </li>
           <li>
-            <a class="nav-item" href="#alerts">
+            <a class="nav-item" href="#alerts"
+               onclick="addBodyClass('purple-theme')">
               <svg class="icon"><use href="#fa-bell-exclamation" xlink:href="#fa-bell-exclamation"></use></svg>
               Notifications
             </a>
@@ -397,6 +491,17 @@
       }
 
       customElements.define('nav-bar', Navbar, { extends: 'ul' })
+
+      function addBodyClass (className) {
+        document.querySelector('body').classList.remove('red-theme')
+        document.querySelector('body').classList.remove('green-theme')
+        document.querySelector('body').classList.remove('teal-theme')
+        document.querySelector('body').classList.remove('indigo-theme')
+        document.querySelector('body').classList.remove('purple-theme')
+        if (className) {
+          document.querySelector('body').classList.add(className)
+        }
+      }
 
       document.querySelector('body').classList.add('js')
     </script>
