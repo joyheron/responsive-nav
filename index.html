@@ -493,17 +493,18 @@
       customElements.define('nav-bar', Navbar, { extends: 'ul' })
 
       function addBodyClass (className) {
-        document.querySelector('body').classList.remove('red-theme')
-        document.querySelector('body').classList.remove('green-theme')
-        document.querySelector('body').classList.remove('teal-theme')
-        document.querySelector('body').classList.remove('indigo-theme')
-        document.querySelector('body').classList.remove('purple-theme')
+        let { body } = document
+        body.classList.remove('red-theme')
+        body.classList.remove('green-theme')
+        body.classList.remove('teal-theme')
+        body.classList.remove('indigo-theme')
+        body.classList.remove('purple-theme')
         if (className) {
-          document.querySelector('body').classList.add(className)
+          body.classList.add(className)
         }
       }
 
-      document.querySelector('body').classList.add('js')
+      document.body.classList.add('js')
     </script>
   </body>
 </html>
