@@ -494,11 +494,10 @@
 
       function addBodyClass (className) {
         let { body } = document
-        body.classList.remove('red-theme')
-        body.classList.remove('green-theme')
-        body.classList.remove('teal-theme')
-        body.classList.remove('indigo-theme')
-        body.classList.remove('purple-theme')
+        let themes = ['red-theme', 'green-theme', 'teal-theme', 'indigo-theme', 'purple-theme']
+        for (let theme of themes) {
+          body.classList.remove(theme)
+        }
         if (className) {
           body.classList.add(className)
         }
