@@ -65,10 +65,6 @@
         --font-size-lg: 2rem;
         --container-width: 40rem;
 
-        /* Use to calculate body padding for non JavaScript menu */
-        --number-of-nav-rows: 2;
-        --navbar-height: 5rem;
-
         --primary-100: var(--pink-100);
         --primary-200: var(--pink-200);
         --primary-300: var(--pink-300);
@@ -99,6 +95,17 @@
       body {
         font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
         font-size: var(--font-size-base);
+        display: grid;
+        grid-template-areas:
+          "navbar"
+          "main";
+      }
+
+      body > nav {
+        grid-area: navbar;
+      }
+      body > main {
+        grid-area: main;
       }
 
       /* Icon Styles */
@@ -157,14 +164,17 @@
       /* For Choice of Breakpoint read: https://www.freecodecamp.org/news/the-100-correct-way-to-do-css-breakpoints-88d6a5ba1862/ */
       @media (max-width: 599px) {
         body {
-          padding-bottom: calc(var(--number-of-nav-rows) * var(--navbar-height));
+          grid-template-areas:
+            "main"
+            "navbar";
+          grid-template-rows: 1fr auto;
+          min-height: 100vh;
         }
-        body.js {
-          padding-bottom: var(--navbar-height);
+        body > nav {
+          position: sticky;
+          bottom: 0;
         }
         .nav {
-          position: fixed;
-          bottom: 0;
           border-top: 1px solid var(--gray-300);
           flex-wrap: wrap;
         }
@@ -174,7 +184,7 @@
         .nav-item {
           flex-direction: column;
         }
-        /* 
+        /*
         Only blend in menu if there are more than 4 Navigation items
         This works because the rule only is activated when there are
         5 navigation items + 1 toggle item = 6 total items
@@ -189,7 +199,7 @@
         .nav.collapsed li:nth-child(3) ~ :not(.menu-toggle) {
           display: none;
         }
-        
+
         .nav.expanded {
           flex-direction: column;
         }
@@ -273,7 +283,7 @@
       .list li p + p {
         margin-top: var(--space-xs);
         font-size: var(--font-size-sm);
-      }  
+      }
       .red-theme {
         --primary-100: var(--red-100);
         --primary-200: var(--red-200);
@@ -381,7 +391,7 @@
           Current page
         </div>
       </nav>
-      
+
     <main>
       <section>
         <h1>Responsive Mobile Navigation</h1>
@@ -502,8 +512,6 @@
           document.querySelector('body').classList.add(className)
         }
       }
-
-      document.querySelector('body').classList.add('js')
     </script>
   </body>
 </html>
